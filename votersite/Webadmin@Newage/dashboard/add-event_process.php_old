@@ -1,0 +1,75 @@
+<?php
+include("../session/session.php");
+include("../database/db.php");
+$event_name=$_POST['eventname'];
+$description=$_POST['editor1'];
+$three_digit = mt_rand(100, 999);
+$event_id="ev_".time()."_".$three_digit;
+
+date_default_timezone_set("Asia/Calcutta"); 
+$creation_date= date("d-m-Y h:i:s A");
+$created_by=$_SESSION['adminname'];
+$current_status=0;
+
+$qry1="INSERT INTO `event` (`id`, `event_name`, `description`, `event_id`, `creation_date`, `created_by`, `published_date`, `end_date`, `current_status`) VALUES ('', '$event_name', '$description', '$event_id', '$creation_date', '$created_by',NULL,NULL, 'INACTIVE');";
+
+if($conn->query($qry1))
+{
+	
+	$qry2="CREATE TABLE `$database`.`$event_id` ( `id` INT(5) NOT NULL AUTO_INCREMENT ,  `candidate` TEXT NOT NULL ,  `candidate_id` TEXT NOT NULL ,  `sector` TEXT NOT NULL ,  `description` TEXT NOT NULL ,  `file_path` TEXT NOT NULL ,  `creation_date` TEXT NOT NULL ,  `created_by` TEXT NOT NULL ,  `vote_count` INT(10) NOT NULL , `current_stage` INT(2) NOT NULL DEFAULT 1,   PRIMARY KEY  (`id`)) ENGINE = MyISAM;";
+	
+	if($conn->query($qry2))
+	{
+	    $qry_alter="ALTER TABLE `$event_id` ADD `eliminated` INT(1) NOT NULL DEFAULT '0' AFTER `vote_count`;";
+	    $conn->query($qry_alter);
+
+
+		//v2.0.0 2024 build
+	    $stmt = $conn->prepare("INSERT INTO staging (event, event_id, current_stage) VALUES (?, ?, ?)");
+		$stmt->bind_param("ssi", $event, $eventid, $current_stage);
+
+		// Set parameters and execute
+		$event = $event_name;  // Replace with your event text
+		$eventid = $event_id;     // Replace with your event ID
+		$current_stage = 1;     // Replace with your current stage
+		$stmt->execute();
+
+		$votehistorytable="vote_history_".$event_id;
+	$qry3="CREATE TABLE `$database`.`$votehistorytable` ( `id` INT(10) NOT NULL AUTO_INCREMENT ,  `candidate` TEXT NOT NULL ,  `time` TEXT NOT NULL ,  `ipaddress` TEXT NOT NULL ,  `mac_id` TEXT NOT NULL ,  `month` TEXT NOT NULL ,  `year` TEXT NOT NULL ,`date` TEXT NOT NULL ,  `event_start_date` TEXT NULL DEFAULT NULL ,  `event_end_date` TEXT NULL DEFAULT NULL , `vote_stage` INT(2) NOT NULL,  PRIMARY KEY  (`id`)) ENGINE = MyISAM;";
+		
+		if($conn->query($qry3))
+		{
+			
+			$_SESSION['event_added']="success";
+			echo "<script>location='add-event.php'</script>";	
+		}
+		else
+		{
+			echo "failure inner 3";
+		 	echo("Error description: " . $conn -> error);
+		
+		}
+		
+	}
+	else
+	{
+		echo "failure inner 2";
+		 echo("Error description: " . $conn -> error);
+		
+	}
+	
+	
+}
+else
+{
+	echo "failure outer";
+	 echo("Error description: " . $conn -> error);
+}
+
+
+
+
+
+
+
+?>

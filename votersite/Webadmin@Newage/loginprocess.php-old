@@ -1,0 +1,46 @@
+
+<?php 
+include("database/db.php");
+include("session/session.php");
+$uname= $_POST['txtusername'];
+$pwd=$_POST['txtpassword'];
+$qry="SELECT * FROM `admin_login` WHERE `username`='$uname'";
+$result=$conn->query($qry);
+
+
+if ($result->num_rows==1) 
+	
+{
+    
+while($row = $result->fetch_assoc()) 
+{
+
+	$dbuname=$row['username'];
+	$dbpwd=$row['password'];
+	$name=$row['Name'];
+}
+	
+	if(($dbuname==$uname) && ($dbpwd==$pwd))
+	{
+	$_SESSION['user']=$dbuname;
+		$_SESSION['login']=1;
+		$_SESSION['adminname']=$name;
+	echo "<script>location='dashboard/home.php'</script>";	
+	}
+	else
+	{
+		$_SESSION['login']=0;
+		$_SESSION['nologin']=1;
+		echo "<script>location='index.php'</script>";
+		
+	}
+	
+}
+else
+
+{
+$_SESSION['nologin']=1;
+	$_SESSION['login']=0;
+echo "<script>location='index.php'</script>";
+}
+?>

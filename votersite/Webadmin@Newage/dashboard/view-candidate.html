@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>Newage</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/toastr.css">
+    <link rel="stylesheet" href="fonts/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/toastr.js"></script>
+    <script src="js/home.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="main-section">
+        <div class="main-sectionWrapdashboard">
+            <div class="dashboard-left">
+                <div class="dashboard-logo">
+                    <img src="images/Logo-white.png" alt="logo">
+                </div>
+                <ul class="menu-class">
+                    <li><a href="">Suggestion </a>
+                        <span><i class="fa fa-chevron-down menu-link"></i></span>
+                        <ul class="sub-menu-class">
+                            <li><a href="">asd</a></li>
+                            <li><a href="">adfghk</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="menu-link">Candidate </a>
+                        <span><i class="fa fa-chevron-down menu-link"></i></span>
+                        <ul class="sub-menu-class">
+                            <li><a href="">asdbhh</a></li>
+                            <li><a href="">ak</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Vote Statistics</a></li>
+                    <li><a href="">Dynamic Content</a></li>
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Subscribers</a></li>
+                    <li><a href="">Advertisement</a></li>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Social media</a></li>
+                </ul>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-hdr">
+                    <div class="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="dashboard-hdrLeft">
+                        <h5>View Candidates</h5>
+                    </div>
+                    <div class="dashboard-hdrRight">
+                        <ul>
+                            <li title="Notifications">
+                                <i class="fa fa-bell"></i>
+                                <span class="count">1</span>
+                            </li>
+                            <li title="Change password">
+                                <i class="fa fa-unlock-alt"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-user"></i> <span>Admin</span>
+                            </li>
+                            <li title="Logout">
+                                <i class="fa fa-power-off"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- dashboard content -->
+                <div class="dashboard-dynamicContent">
+                    <div class="overflow-table viewCandidate">
+                        <div class="table-hdr">
+                            <div class="table-hdrLeft">
+                                <div class="select">
+                                    <select id="sortBy">
+                                        <option value="">Sort by</option>
+                                        <option value="name">Name</option>
+                                        <option value="sector">Sector</option>
+                                        <option value="nominated">Nominated by</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table-hdrRight">
+                                <div class="search-class"><input type="search" name="search" placeholder="Search">
+                                    <i class="fa fa-search"></i> </div>
+                            </div>
+                        </div>
+                        <div class="viewCandidate">
+                            <div class="viewCandidatewrap display-flex">
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <div class="sharemodal">
+                                        <!-- Modal content -->
+                                        <div class="modal-content">
+                                            <span class="close"><i class="fa fa-close"></i></span>
+                                            <h3>Vote Count</h3>
+
+                                            <h5>Candidate name</h5>
+                                            <h6 class="green-text">texttt</h6>
+                                            <form class="clearfix">
+                                                <div>
+                                                <label for="pwd">Password:</label><br>
+                                                <input type="password" id="pwd" name="pwd"></div>
+                                                <div>
+                                                <label for="count">Vote Count:</label><br>
+                                                <input type="text" id="count" name="count"></div>
+                                                <button class="green-btn btn-sec ">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                                <div class="candidate-flex">
+                                    <div class="candidate-img">
+                                        <img src="images/candidate1.jpg">
+                                    </div>
+                                    <h5>Candidate name</h5>
+                                    <h6>Sector</h6>
+                                    <div class="vote-count">Vote count: <span>8</span></div>
+                                    <span class="action-icons">
+                                        <a href="" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="" title="Share"><i class="fa fa-share-alt"></i></a> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+.pagination {
+  display: inline-block;
+	
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+	
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #F5070B;}
+
+.btn-submit {
+    background: #d20816;
+    color: #fff;
+    margin: 10px 0px;
+    padding: 10px 30px;
+}
+
+
+.btn-cancel {
+    background: #015C1D;
+    color: #fff;
+    margin: 10px 0px;
+    padding: 10px 30px;
+}
+.btn-cancel:hover {
+    background: #fff;
+    color: #015C1D;
+    border-color: #015C1D;
+	
+}
