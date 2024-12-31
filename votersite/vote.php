@@ -128,7 +128,7 @@ $fingerprint = hash('sha256', $fingerprint_data);
     <meta property="og:image" itemprop="image" content="<?php echo "https://newageicon.com/Webadmin@Newage/dashboard/images/candidate/".$file_name; ?>" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
-    <title>Newage</title>
+    <title><?php echo $_SESSION['title']; ?> </title>
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">

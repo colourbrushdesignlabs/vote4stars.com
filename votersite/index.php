@@ -6,7 +6,15 @@ include("database/db.php");
 include("session/session.php");
 $_SESSION['success']=(isset($_SESSION['success'])) ? (int)$_SESSION['success'] : 0;
 include("countdowntimer.php");
-
+$stmt = $conn->prepare("SELECT config_value FROM web_configurations WHERE id = ?");
+$stmt->bind_param("i", $config_id);
+$config_id = 1;
+$stmt->execute();
+$stmt->bind_result($web_title);
+$stmt->fetch();
+$stmt->close();
+$_SESSION['title']=$web_title;
+//$_SESSION['title'];
 $qry="SELECT * from `config`";
 $i=0;
 $result=$conn->query($qry);
@@ -73,7 +81,7 @@ $banner_path="Webadmin@Newage/dashboard/images/banner/".$old_file;
 	<!--toaster-->
 	
 	
-    <title>Newage</title>
+    <title><?php echo $_SESSION['title']; ?> </title>
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">

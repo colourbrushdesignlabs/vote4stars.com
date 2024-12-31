@@ -118,7 +118,7 @@ $stmt->close();
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
-    <title>Newage</title>
+    <title><?php echo $_SESSION['title']; ?> </title>
 
     <!-- favicon -->
 
