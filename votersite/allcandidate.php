@@ -118,7 +118,18 @@ $stmt->close();
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
-    <title><?php echo $_SESSION['title']; ?> </title>
+    <title>
+<?php 
+$stmt = $conn->prepare("SELECT config_value FROM web_configurations WHERE id = ?");
+$stmt->bind_param("i", $config_id);
+$config_id = 1;
+$stmt->execute();
+$stmt->bind_result($web_title);
+$stmt->fetch();
+$stmt->close();
+echo $web_title;
+ ?> 
+</title>
 
     <!-- favicon -->
 
