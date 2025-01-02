@@ -1,6 +1,7 @@
 
 
 <?php 
+$thispage=" Home Page";
 define("SITE_KEY","6LdmhuUUAAAAAJdBBFU-Re1BXQ2ECZpokf6kB9iC");
 include("database/db.php");
 include("session/session.php");
@@ -90,7 +91,7 @@ $stmt->execute();
 $stmt->bind_result($web_title);
 $stmt->fetch();
 $stmt->close();
-echo $web_title;
+echo $web_title.$thispage;
  ?> 
 </title>
     <!-- favicon -->

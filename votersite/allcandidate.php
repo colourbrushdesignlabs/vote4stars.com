@@ -3,7 +3,7 @@
 
 
 <?php include("database/db.php"); 
-
+$thispage="| All Candidates";
 
 
 	include("session/session.php"); 
@@ -127,7 +127,7 @@ $stmt->execute();
 $stmt->bind_result($web_title);
 $stmt->fetch();
 $stmt->close();
-echo $web_title;
+echo $web_title.$thispage;
  ?> 
 </title>
 

@@ -2,13 +2,23 @@
 
 <!DOCTYPE html>
 <html>
-<?php include("database/db.php"); 
+<?php 
+    include("database/db.php"); 
 	include("session/session.php"); 
+
+    
 
 
 	if(isset($_GET['cid']))
 	{
 	$cid=base64_decode($_GET['cid']);
+    $stmt = $conn->prepare("SELECT caption FROM dynamic_contents where id = ?");
+    $stmt->bind_param("i", $cid);
+    //$config_id = 1;
+    $stmt->execute();
+    $stmt->bind_result($thispage);
+    $stmt->fetch();
+    $stmt->close();
 		
 	}
 	else
@@ -34,7 +44,7 @@ $stmt->execute();
 $stmt->bind_result($web_title);
 $stmt->fetch();
 $stmt->close();
-echo $web_title;
+echo $web_title." | ".$thispage;
  ?> 
 </title>
     <!-- favicon -->

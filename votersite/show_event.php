@@ -2,9 +2,21 @@
 
 <!DOCTYPE html>
 <html>
-<?php include("database/db.php"); 
-	include("session/session.php"); 
+<?php 
+include("session/session.php"); 
+include("database/db.php");
 $cid=$_SESSION['id_event'];
+$stmt = $conn->prepare("SELECT event_name FROM event where id = ?");
+$stmt->bind_param("i", $cid);
+//$config_id = 1;
+$stmt->execute();
+$stmt->bind_result($eventname);
+$stmt->fetch();
+$stmt->close();
+ ?> 
+<?php  
+	
+
 	$hide=$_SESSION['hide_event'];
 	if ($hide==1)
 	{
@@ -26,7 +38,7 @@ $stmt->execute();
 $stmt->bind_result($web_title);
 $stmt->fetch();
 $stmt->close();
-echo $web_title;
+echo $web_title." | ".$eventname;
  ?> 
 </title>
     <!-- favicon -->
